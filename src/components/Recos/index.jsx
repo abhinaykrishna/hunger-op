@@ -1,11 +1,15 @@
+import Calendar from '../Calendar';
+
 const Recos = () => {
   return (
     <div className='p-2'>
-      <div className='mt-5 text-lg'>
-        Today's Recommendation - Available Stock + Recently Prepared {'!<=3'}
+      <div className='border my-2 px-2'>
+        <div className='my-5 text-lg'>
+          Today's Recommendation - Available Stock + Recently Prepared {'!<=3'}
+        </div>
+        <div className='my-5 text-lg'>Opt Out Lunch/Dinner</div>
       </div>
-      <div className='mt-5 text-lg'>Opt Out Lunch/Dinner</div>
-      <div className='mt-5 text-lg'>Calendar View</div>
+      <Calendar />
     </div>
   );
 };
