@@ -10,18 +10,15 @@ function App() {
   };
 
   return (
-    <main className='flex flex-col h-screen'>
-      <div className='shrink-0'>
+    <main className='relative' style={{ height: '100dvh' }}>
+      <div className='fixed top-0 left-0 w-full z-50'>
         <Header />
       </div>
-      <div className='flex-1 overflow-auto'>
+      <div className='pt-16 pb-16 overflow-auto h-full'>
         <Body activeTab={activeTab} />
       </div>
-      <div className='shrink-0'>
-        <AppNavigation
-          activeTab={activeTab}
-          updateActiveTab={updateActiveTab}
-        />
+      <div className='fixed bottom-0 left-0 w-full z-50'>
+        <AppNavigation activeTab={activeTab} updateActiveTab={updateActiveTab} />
       </div>
     </main>
   );
