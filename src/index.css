@@ -4,3 +4,11 @@
 * {
   font-family: 'Reddit Sans', sans-serif;
 }
+
+@theme {
+  --color-deep-navy: oklch(23.31% 0.045 254.72);
+  --color-slate-blue: oklch(35.41% 0.053 257.8);
+  --color-warm-beige: oklch(95% 0.005 45);
+  --color-soft-cream: oklch(79.85% 0.047 50.53);
+  --color-rustic-tan: oklch(63.52% 0.122 55.92);
+}

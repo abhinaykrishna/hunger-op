@@ -12,7 +12,7 @@ function Calendar() {
         mode='single'
         selected={selectedDate}
         onSelect={setSelectedDate}
-        footer={`Selected Date: ${selectedDate.toLocaleDateString()}`}
+        footer={`Selected Date: ${selectedDate?.toLocaleDateString() || 'Pick a date'}`}
         classNames={{
           today: 'text-orange-300',
           selected: 'text-orange-300',
