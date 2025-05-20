@@ -12,3 +12,9 @@
   --color-soft-cream: oklch(79.85% 0.047 50.53);
   --color-rustic-tan: oklch(63.52% 0.122 55.92);
 }
+
+@layer utilities {
+  .bg-gradient {
+    background-image: linear-gradient(to bottom, #00ffff, #ff69b4);
+  }
+}

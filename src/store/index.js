@@ -5,6 +5,8 @@ const rootReducer = combineReducers({
   login: loginReducer,
 });
 
-export const store = configureStore({
+const store = configureStore({
   reducer: rootReducer,
 });
+
+export default store;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router';
 import { signin } from '../../store/slices/loginSlice';
 import googleLogo from '../../assets/google-logo.png';
 
@@ -13,11 +14,14 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const onSubmit = data => {
     setInvalidPassword(false);
     const { email, password } = data;
     if (email === 'admin@hungerop.com' && password === 'admin@123') {
       dispatch(signin());
+      navigate('/');
     } else {
       setInvalidPassword(true);
     }
@@ -40,6 +44,7 @@ const Login = () => {
             id='email'
             className='border border-black p-2 w-[300px] rounded-lg outline-none'
             {...register('email', {
+              required: 'Email is required',
               pattern: {
                 value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                 message: 'Invalid email format',
@@ -74,7 +79,9 @@ const Login = () => {
         <button className='mt-4 w-32 flex items-center justify-center mx-auto bg-rustic-tan text-white p-2 rounded-md hover:ring-2 hover:ring-orange-500 cursor-pointer'>
           Login
         </button>
-        <p className='text-center mt-2 underline cursor-pointer'>New User Signup?</p>
+        <div className='text-center mt-2 underline'>
+          <Link to='/register'>New User Signup?</Link>
+        </div>
       </form>
     </div>
   );
