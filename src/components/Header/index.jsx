@@ -1,9 +1,13 @@
+import { Link } from 'react-router';
+
 const Header = () => {
   return (
-    <header className='p-4 bg-orange-200'>
+    <header className='p-4 bg-deep-navy text-soft-cream'>
       <h1 className='font-bold text-center'>
-        <span className='text-4xl'>Hunger</span>
-        <span className='text-2xl relative -top-2'> OP</span>
+        <Link to='/'>
+          <span className='text-4xl'>Hunger</span>
+          <span className='text-2xl relative -top-2'> OP</span>
+        </Link>
       </h1>
     </header>
   );

@@ -5,8 +5,8 @@ import 'react-day-picker/style.css';
 function Calendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   return (
-    <>
-      <div className='mt-5 text-2xl font-bold text-orange-300'>Calendar View</div>
+    <div className='flex flex-col items-center'>
+      <div className='mt-5 text-2xl font-bold text-deep-navy'>Calendar View</div>
       <DayPicker
         animate
         mode='single'
@@ -23,7 +23,7 @@ function Calendar() {
         <p className='text-sm'>Lunch - Bachelor's Chicken Curry + Methi Paratha</p>
         <p className='text-sm'>Dinner - Palak Paneer + Chapati</p>
       </div>
-    </>
+    </div>
   );
 }
 

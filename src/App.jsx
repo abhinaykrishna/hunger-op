@@ -5,8 +5,9 @@ import Header from './components/Header';
 import Body from './components/Body';
 import AppNavigation from './components/AppNavigation';
 import Login from './components/Login';
-import RegisterUser from './components/Register';
+import RegisterNewUser from './components/RegisterNewUser';
 import LandingPage from './components/LandingPage';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
   const [activeTab, setActiveTab] = useState('menu');
@@ -18,12 +19,15 @@ function App() {
 
   if (!isAuthenticated) {
     return (
-      <Routes>
-        <Route index element={<LandingPage />} />
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<RegisterUser />} />
-        <Route path='*' element={<Navigate to='/' />} />
-      </Routes>
+      <main style={{ height: '100dvh' }}>
+        <Routes>
+          <Route index element={<LandingPage />} />
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<RegisterNewUser />} />
+          <Route path='forgotPassword' element={<ForgotPassword />} />
+          <Route path='*' element={<Navigate to='/' />} />
+        </Routes>
+      </main>
     );
   }
 
