@@ -27,7 +27,7 @@ const ForgotPassword = () => {
       <Link to='/' className='text-soft-cream ml-4 my-6 cursor-pointer hover:text-white'>
         {'< Back to Landing Page'}
       </Link>
-      <div className='h-full flex justify-center items-center flex-wrap'>
+      <div className='h-full flex items-center flex-wrap w-84 m-auto'>
         <form
           className='bg-[#D3C1B7] p-10 rounded-3xl shadow-md shadow-soft-cream'
           onSubmit={handleSubmit(onSubmit)}

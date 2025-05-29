@@ -19,15 +19,13 @@ function App() {
 
   if (!isAuthenticated) {
     return (
-      <main style={{ height: '100dvh' }}>
-        <Routes>
-          <Route index element={<LandingPage />} />
-          <Route path='login' element={<Login />} />
-          <Route path='register' element={<RegisterNewUser />} />
-          <Route path='forgotPassword' element={<ForgotPassword />} />
-          <Route path='*' element={<Navigate to='/' />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route index element={<LandingPage />} />
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<RegisterNewUser />} />
+        <Route path='forgotPassword' element={<ForgotPassword />} />
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
     );
   }
 

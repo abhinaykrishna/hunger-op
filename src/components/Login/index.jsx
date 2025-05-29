@@ -25,7 +25,7 @@ const Login = () => {
     mutationFn: loginUser,
     onSuccess: () => {
       dispatch(signin());
-      navigate('/flatSetup');
+      // navigate('/flatSetup');
     },
   });
 
