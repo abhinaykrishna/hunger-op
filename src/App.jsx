@@ -1,48 +1,28 @@
-import { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router';
-import { useSelector } from 'react-redux';
-import Header from './components/Header';
-import Body from './components/Body';
-import AppNavigation from './components/AppNavigation';
+import { Routes, Route } from 'react-router';
 import Login from './components/Login';
 import RegisterNewUser from './components/RegisterNewUser';
 import LandingPage from './components/LandingPage';
 import ForgotPassword from './components/ForgotPassword';
+import Dashboard from './components/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
+import FlatSetup from './components/FlatSetup';
+import CreateFlat from './components/CreateFlat';
+import JoinFlat from './components/JoinFlat';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('menu');
-  const updateActiveTab = tab => {
-    setActiveTab(tab);
-  };
-
-  const isAuthenticated = useSelector(state => state.login.isAuthenticated);
-
-  if (!isAuthenticated) {
-    return (
-      <Routes>
-        <Route index element={<LandingPage />} />
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<RegisterNewUser />} />
-        <Route path='forgotPassword' element={<ForgotPassword />} />
-        <Route path='*' element={<Navigate to='/' />} />
-      </Routes>
-    );
-  }
-
   return (
-    <>
-      <main className='relative' style={{ height: '100dvh' }}>
-        <div className='fixed top-0 left-0 w-full z-50'>
-          <Header />
-        </div>
-        <div className='pt-16 pb-16 overflow-auto h-full'>
-          <Body activeTab={activeTab} />
-        </div>
-        <div className='fixed bottom-0 left-0 w-full z-50'>
-          <AppNavigation activeTab={activeTab} updateActiveTab={updateActiveTab} />
-        </div>
-      </main>
-    </>
+    <Routes>
+      <Route index element={<LandingPage />} />
+      <Route path='login' element={<Login />} />
+      <Route path='register' element={<RegisterNewUser />} />
+      <Route path='forgotPassword' element={<ForgotPassword />} />
+      <Route element={<PrivateRoute />}>
+        <Route path='/flatSetup' element={<FlatSetup />} />
+        <Route path='/createFlat' element={<CreateFlat />} />
+        <Route path='/joinFlat' element={<JoinFlat />} />
+      </Route>
+      <Route path='/dashboard' element={<Dashboard />} />
+    </Routes>
   );
 }
 
