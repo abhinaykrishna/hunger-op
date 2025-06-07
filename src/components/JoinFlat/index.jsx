@@ -42,9 +42,9 @@ const JoinFlat = () => {
       >
         <h3 className='text-center text-3xl mb-2'>Join Flat</h3>
         <p className='my-1 text-center'>Ask your flatmates to share the flat code</p>
-        <p className='border-b mb-4' />
+        <p className='border-b mb-2.5' />
         <div className='flex flex-col'>
-          <label htmlFor='flat-code' className='my-2 '>
+          <label htmlFor='flat-code' className='my-2'>
             Flat Code
           </label>
           <input

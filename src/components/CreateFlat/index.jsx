@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
 import axiosInstance from '../../api/axios';
+import whatsappLogo from '../../assets/whatsapp-logo.webp';
 
 const registerNewFlat = async data => {
   const response = await axiosInstance.post('/flat/create', data);
@@ -12,6 +13,9 @@ const CreateFlat = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
 
@@ -25,8 +29,21 @@ const CreateFlat = () => {
   });
 
   const onSubmit = data => {
-    mutation.mutate(data);
+    const { cookPreparesLunch, cookPreparesDinner } = data;
+    if (!cookPreparesLunch || !cookPreparesDinner) {
+      setError('cookingOptionsError', {
+        type: 'manual',
+        message: 'Select atleast one cooking time',
+      });
+      return;
+    }
+    clearErrors('cookingOptionsError');
+    // mutation.mutate(data);
+    console.log(data);
   };
+
+  const cookPreparesLunch = watch('cookPreparesLunch', false);
+  const cookPreparesDinner = watch('cookPreparesDinner', false);
 
   return (
     <div className='h-screen bg-deep-navy flex justify-center items-center flex-wrap'>
@@ -80,8 +97,32 @@ const CreateFlat = () => {
           {errors.address && <p className='text-red-600 my-1 text-xs'>{errors.address.message}</p>}
         </div>
         <div className='flex flex-col'>
-          <label htmlFor='cookMobileNumber' className='my-2'>
-            Cook's Mobile Number <span className='text-xs'>(Whatsapp)</span>
+          <label htmlFor='cookName' className='my-2'>
+            Cook's Name
+          </label>
+          <input
+            type='text'
+            id='cookName'
+            className='border border-black p-2 w-[300px] rounded-lg outline-none'
+            {...register('cookName', {
+              required: 'Cook name is required',
+              minLength: {
+                value: 3,
+                message: 'Cook name must be atleast 3 characters',
+              },
+            })}
+          />
+          {errors.cookName && (
+            <p className='text-red-600 my-1 text-xs'>{errors.cookName.message}</p>
+          )}
+        </div>
+        <div className='flex flex-col'>
+          <label htmlFor='cookMobileNumber' className='my-2 flex justify-between'>
+            <span>Cook's Mobile Number </span>
+            <div className='flex items-center'>
+              <img src={whatsappLogo} alt='whatsapp-logo' className='w-6' />
+              <span className='text-sm ml-1'>Whatsapp</span>
+            </div>
           </label>
           <input
             type='text'
@@ -104,11 +145,61 @@ const CreateFlat = () => {
             <p className='text-red-600 my-1 text-xs'>{errors.cookMobileNumber.message}</p>
           )}
         </div>
-        <div className='flex flex-col'>
-          <label htmlFor='cookingTime' className='my-2'>
-            Cooking Time
-          </label>
+        <h4 className='my-2'>Cooking Time</h4>
+        <div className='flex items-center'>
+          <div className='w-20 flex items-center'>
+            <input
+              id='lunch-checkbox'
+              type='checkbox'
+              value=''
+              className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+              {...register('cookPreparesLunch')}
+            />
+            <label
+              htmlFor='lunch-checkbox'
+              className='ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+            >
+              Lunch
+            </label>
+          </div>
+          {cookPreparesLunch && (
+            <input
+              type='time'
+              className='ml-4 border px-2 my-1 rounded-md text-sm'
+              // 15 minutes in seconds
+              step='900'
+              {...register('lunchCookingTime')}
+            />
+          )}
         </div>
+        <div className='flex my-1 items-center'>
+          <div className='w-20 flex items-center'>
+            <input
+              id='dinner-checkbox'
+              type='checkbox'
+              value=''
+              className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+              {...register('cookPreparesDinner')}
+            />
+            <label
+              htmlFor='dinner-checkbox'
+              className='ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+            >
+              Dinner
+            </label>
+          </div>
+          {cookPreparesDinner && (
+            <input
+              type='time'
+              className='ml-4 border px-2 rounded-md text-sm'
+              step='900'
+              {...register('dinnerCookingTime')}
+            />
+          )}
+        </div>
+        {errors.cookingOptionsError && (
+          <p className='text-red-600 my-1 text-xs'>{errors.cookingOptionsError.message}</p>
+        )}
         <button
           type='submit'
           className='mt-4 w-3/4 flex items-center justify-center mx-auto bg-rustic-tan text-white p-2 rounded-md hover:ring-2 hover:ring-deep-navy cursor-pointer'
