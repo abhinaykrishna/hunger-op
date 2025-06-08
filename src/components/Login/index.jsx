@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router';
+import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
 import { signin } from '../../store/slices/loginSlice';
 import googleLogo from '../../assets/google-logo.png';
@@ -32,6 +33,10 @@ const Login = () => {
   const onSubmit = data => {
     mutation.mutate(data);
   };
+
+  if (mutation.isPending) {
+    return <Loader />;
+  }
 
   return (
     <div className='h-screen bg-deep-navy flex justify-center items-center flex-wrap'>

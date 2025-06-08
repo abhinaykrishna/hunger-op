@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router';
+import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
 import { signin } from '../../store/slices/loginSlice';
 
@@ -34,6 +35,10 @@ const RegisterNewUser = () => {
     const { confirmPassword, ...rest } = data;
     mutation.mutate(rest);
   };
+
+  if (mutation.isPending) {
+    return <Loader />;
+  }
 
   return (
     <div className='h-screen bg-deep-navy flex flex-col'>

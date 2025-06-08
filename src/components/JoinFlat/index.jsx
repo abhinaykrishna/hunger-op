@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router';
+import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
 
 const joinFlatWithCode = async data => {
@@ -27,6 +28,10 @@ const JoinFlat = () => {
   const onSubmit = data => {
     mutation.mutate(data);
   };
+
+  if (mutation.isPending) {
+    return <Loader />;
+  }
 
   return (
     <div className='h-screen bg-deep-navy flex justify-center items-center flex-wrap'>

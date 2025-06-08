@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
+import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
 import whatsappLogo from '../../assets/whatsapp-logo.webp';
 
@@ -30,7 +31,7 @@ const CreateFlat = () => {
 
   const onSubmit = data => {
     const { cookPreparesLunch, cookPreparesDinner } = data;
-    if (!cookPreparesLunch || !cookPreparesDinner) {
+    if (!cookPreparesLunch && !cookPreparesDinner) {
       setError('cookingOptionsError', {
         type: 'manual',
         message: 'Select atleast one cooking time',
@@ -38,12 +39,16 @@ const CreateFlat = () => {
       return;
     }
     clearErrors('cookingOptionsError');
-    // mutation.mutate(data);
-    console.log(data);
+    mutation.mutate(data);
+    // console.log(data);
   };
 
-  const cookPreparesLunch = watch('cookPreparesLunch', false);
-  const cookPreparesDinner = watch('cookPreparesDinner', false);
+  if (mutation.isPending) {
+    return <Loader />;
+  }
+
+  const cookPreparesLunch = watch('cookPreparesLunch');
+  const cookPreparesDinner = watch('cookPreparesDinner');
 
   return (
     <div className='h-screen bg-deep-navy flex justify-center items-center flex-wrap'>
