@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router';
 import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
-import { signin } from '../../store/slices/loginSlice';
+import { setCredentials } from '../../store/slices/authSlice';
 import googleLogo from '../../assets/google-logo.png';
 
 const loginUser = async data => {
   const response = await axiosInstance.post('/auth/login', data);
-  return response.data;
+  return response;
 };
 
 const Login = () => {
@@ -24,9 +24,10 @@ const Login = () => {
 
   const mutation = useMutation({
     mutationFn: loginUser,
-    onSuccess: () => {
-      dispatch(signin());
-      navigate('/flatSetup');
+    onSuccess: response => {
+      const token = response.headers['authorization'] || response.headers['x-access-token'];
+      dispatch(setCredentials({ ...response.data, token }));
+      navigate(response.data.enrolledInFlat ? '/dashboard' : '/flatSetup');
     },
   });
 

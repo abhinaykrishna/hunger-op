@@ -5,9 +5,13 @@ import { Provider } from 'react-redux';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import App from './App.jsx';
 import store from './store';
+import { injectStore } from './api/axios.js';
 import './index.css';
 
 const queryClient = new QueryClient();
+
+// Injecting redux store in axios
+injectStore(store);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

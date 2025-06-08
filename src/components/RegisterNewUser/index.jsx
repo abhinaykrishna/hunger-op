@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router';
 import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
-import { signin } from '../../store/slices/loginSlice';
+import { setCredentials } from '../../store/slices/authSlice';
 
 const createNewUser = async data => {
   const response = await axiosInstance.post('/auth/signup', data);
@@ -26,7 +26,7 @@ const RegisterNewUser = () => {
   const mutation = useMutation({
     mutationFn: createNewUser,
     onSuccess: () => {
-      dispatch(signin());
+      dispatch(setCredentials());
     },
   });
 
