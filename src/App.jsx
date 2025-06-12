@@ -8,6 +8,10 @@ import PrivateRoute from './components/PrivateRoute';
 import FlatSetup from './components/FlatSetup';
 import CreateFlat from './components/CreateFlat';
 import JoinFlat from './components/JoinFlat';
+import Home from './components/Home';
+import Search from './components/Search';
+import Meals from './components/Meals';
+import More from './components/More';
 
 function App() {
   return (
@@ -21,7 +25,12 @@ function App() {
         <Route path='/createFlat' element={<CreateFlat />} />
         <Route path='/joinFlat' element={<JoinFlat />} />
       </Route>
-      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/dashboard' element={<Dashboard />}>
+        <Route index element={<Home />} />
+        <Route path='search' element={<Search />} />
+        <Route path='meals' element={<Meals />} />
+        <Route path='more' element={<More />} />
+      </Route>
     </Routes>
   );
 }

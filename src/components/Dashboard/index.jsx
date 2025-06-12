@@ -1,25 +1,17 @@
-import { useState } from 'react';
+import { Outlet } from 'react-router';
 import Header from '../Header';
-import Body from '../Body';
 import AppNavigation from '../AppNavigation';
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('menu');
-  const updateActiveTab = tab => {
-    setActiveTab(tab);
-  };
-
   return (
     <main className='relative' style={{ height: '100dvh' }}>
-      <div className='fixed top-0 left-0 w-full z-50'>
+      <div className='fixed top-0 left-0 right-0 w-full z-50 h-16 bg-yellow-300'>
         <Header />
       </div>
-      <div className='pt-16 pb-16 overflow-auto h-full'>
-        <Body activeTab={activeTab} />
+      <div className='pt-16 pb-16 overflow-auto h-full bg-cyan-500'>
+        <Outlet />
       </div>
-      <div className='fixed bottom-0 left-0 w-full z-50'>
-        <AppNavigation activeTab={activeTab} updateActiveTab={updateActiveTab} />
-      </div>
+      <AppNavigation />
     </main>
   );
 };
