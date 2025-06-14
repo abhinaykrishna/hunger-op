@@ -18,9 +18,7 @@ const Menu = () => {
     const term = e.target.value;
     setSearchTerm(term);
     const baseList = filterMap[activeFilterKey];
-    const filteredList = term
-      ? baseList.filter(item => item.toLowerCase().includes(term.toLowerCase()))
-      : baseList;
+    const filteredList = term ? baseList.filter(item => item.toLowerCase().includes(term.toLowerCase())) : baseList;
     setActiveFilter(filteredList);
   };
 
@@ -35,20 +33,19 @@ const Menu = () => {
   };
 
   return (
-    <div className='flex flex-col h-full'>
-      <h3 className='text-2xl underline mt-2 p-2'>Menu Items</h3>
+    <div className='my-1 flex flex-col h-full'>
       <div className='flex gap-2 flex-wrap my-1.5 mx-2'>
         <input
           type='text'
           value={searchTerm}
           onChange={handleSearchTermChange}
-          className='flex-1 min-w-[200px] bg-transparent placeholder:text-slate-700 text-slate-700 text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow'
+          className='flex-1 min-w-[200px] bg-transparent placeholder:text-slate-700 dark:placeholder:text-slate-300 text-slate-700 dark:text-white text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow'
           placeholder='Search here...'
         />
         <select
           value={activeFilterKey}
           onChange={handleFilterChange}
-          className='min-w-[150px] border border-slate-200 px-3 py-2 text-slate-700 text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
+          className='min-w-[150px] border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
         >
           {Object.keys(filterMap).map(key => (
             <option key={key} value={key}>
@@ -61,7 +58,7 @@ const Menu = () => {
         </select>
       </div>
       {activeFilter.length > 0 && (
-        <ol className='list-decimal list-inside overflow-y-auto'>
+        <ol className='list-decimal list-inside'>
           {activeFilter.map((item, idx) => (
             <li key={idx} className='m-1 p-2'>
               {item}

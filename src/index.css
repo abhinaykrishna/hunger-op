@@ -4,6 +4,8 @@
 
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 * {
   font-family: 'Space Grotesk', sans-serif;
   /* font-family: 'DM Sans', sans-serif; */
@@ -21,5 +23,14 @@
 @layer utilities {
   .bg-gradient {
     background-image: linear-gradient(to bottom, #00ffff, #ff69b4);
+  }
+}
+
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
   }
 }

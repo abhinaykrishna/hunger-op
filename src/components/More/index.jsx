@@ -1,26 +1,78 @@
-import { CalendarDays, House, HousePlus, LogOut, ScrollText, Sun, Moon, User } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { CalendarDays, House, HousePlus, LogOut, ScrollText, Sun, Moon, User } from 'lucide-react';
 import { toggleTheme } from '../../store/slices/themeSlice';
+import { logout } from '../../store/slices/authSlice';
 
 const More = () => {
-  const options = [
-    { pageKey: 'userProfile', label: 'User Profile', path: 'userProfile', LucideComponent: User },
-    { pageKey: 'createFlat', label: 'Create Flat', path: 'createFlat', LucideComponent: House },
-    { pageKey: 'joinFlat', label: 'Join Flat', path: 'joinFlat', LucideComponent: HousePlus },
-    { pageKey: 'groceriesList', label: 'Generate Groceries Flat', path: 'groceriesList', LucideComponent: ScrollText },
-    { pageKey: 'mealCalendar', label: 'Meal Calendar', path: 'mealCalendar', LucideComponent: CalendarDays },
-    { pageKey: 'inviteFriend', label: 'Invite Friend', path: 'inviteFriend', LucideComponent: House },
-    { pageKey: 'logout', label: 'Logout', path: '', LucideComponent: LogOut },
-  ];
-
   const appTheme = useSelector(state => state.theme.appTheme);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleThemeChange = () => {
     dispatch(toggleTheme(appTheme === 'light' ? 'dark' : 'light'));
   };
 
-  console.log(appTheme);
+  const handleUserProfile = () => {
+    navigate('/dashboard/userProfile');
+  };
+
+  const handleCreateFlat = () => {
+    navigate('/dashboard/createFlat');
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/');
+  };
+
+  const handleJoinFlat = () => {
+    navigate('/dashboard/joinFlat');
+  };
+
+  const handleMealCalendar = () => {
+    navigate('/dashboard/mealCalendar');
+  };
+
+  const options = [
+    {
+      pageKey: 'userProfile',
+      label: 'User Profile',
+      path: 'userProfile',
+      LucideIcon: User,
+      clickHandler: handleUserProfile,
+    },
+    {
+      pageKey: 'createFlat',
+      label: 'Create Flat',
+      path: 'createFlat',
+      LucideIcon: House,
+      clickHandler: handleCreateFlat,
+    },
+    { pageKey: 'joinFlat', label: 'Join Flat', path: 'joinFlat', LucideIcon: HousePlus, clickHandler: handleJoinFlat },
+    {
+      pageKey: 'groceriesList',
+      label: 'Generate Groceries Flat',
+      path: 'groceriesList',
+      LucideIcon: ScrollText,
+      clickHandler: () => {},
+    },
+    {
+      pageKey: 'mealCalendar',
+      label: 'Meal Calendar',
+      path: 'mealCalendar',
+      LucideIcon: CalendarDays,
+      clickHandler: handleMealCalendar,
+    },
+    {
+      pageKey: 'inviteFriend',
+      label: 'Invite Friend',
+      path: 'inviteFriend',
+      LucideIcon: House,
+      clickHandler: () => {},
+    },
+    { pageKey: 'logout', label: 'Logout', path: '', LucideIcon: LogOut, clickHandler: handleLogout },
+  ];
 
   return (
     <div className='mx-4'>
@@ -33,9 +85,9 @@ const More = () => {
         )}
       </div>
       <section>
-        {options.map(({ label, LucideComponent }, idx) => (
-          <div key={idx} className='flex py-3 items-center gap-2.5 cursor-pointer'>
-            <LucideComponent className='w-6 h-6' />
+        {options.map(({ label, LucideIcon, clickHandler }, idx) => (
+          <div key={idx} className='flex py-3 items-center gap-2.5 cursor-pointer' onClick={clickHandler}>
+            <LucideIcon className='w-6 h-6' />
             <span>{label}</span>
           </div>
         ))}

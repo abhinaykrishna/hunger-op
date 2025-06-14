@@ -5,9 +5,9 @@ const Home = () => {
   return (
     <div className='mx-4'>
       <h1 className='text-3xl my-2 font-bold'>Home</h1>
-      <section className='flex flex-col items-center bg-gray-50 rounded-xl w-6/7 mx-auto py-4'>
+      <section className='flex flex-col items-center rounded-xl w-6/7 mx-auto py-4 bg-gray-100 dark:bg-slate-800'>
         <h3 className='text-xl text-center'>Skanda Sky</h3>
-        <h4 className='text-lg text-center'>Kadubeesanahalli</h4>
+        <h4 className='text-lg text-center'>Kadubeesanahalli, Bengaluru</h4>
         <p className='border-b-1 my-1 w-3/4' />
         <div className='flex my-2 w-3/4 justify-around'>
           <div className='flex items-center'>

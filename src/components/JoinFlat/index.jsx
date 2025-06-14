@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router';
+import { ChevronLeft } from 'lucide-react';
 import Loader from '../Loader';
 import axiosInstance from '../../api/axios';
 
@@ -34,18 +35,16 @@ const JoinFlat = () => {
   }
 
   return (
-    <div className='h-screen bg-deep-navy flex justify-center items-center flex-wrap'>
-      <Link
-        to='/flatSetup'
-        className='text-soft-cream absolute top-0 left-0 ml-4 mt-6 hover:text-white'
-      >
-        {'< Back to Flat Setup'}
+    <div className='mx-4 flex flex-col flex-wrap'>
+      <Link to='/dashboard/more' className='my-3 flex items-center'>
+        <ChevronLeft />
+        <span>More</span>
       </Link>
       <form
-        className='bg-[#D3C1B7] px-5 py-10 rounded-3xl shadow-md shadow-soft-cream'
+        className='mt-2 px-5 py-10 rounded-3xl border shadow-md dark:shadow-cyan-300'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className='text-center text-3xl mb-2'>Join Flat</h3>
+        <h3 className='text-center text-2xl mb-2'>Join Flat</h3>
         <p className='my-1 text-center'>Ask your flatmates to share the flat code</p>
         <p className='border-b mb-2.5' />
         <div className='flex flex-col'>
@@ -55,7 +54,7 @@ const JoinFlat = () => {
           <input
             type='text'
             id='flat-code'
-            className='border border-black p-2 w-[300px]  rounded-lg outline-none'
+            className='border border-black p-2 w-full rounded-lg outline-none dark:border-white'
             {...register('flatCode', {
               required: 'Flat code is required',
               minLength: {
@@ -64,13 +63,11 @@ const JoinFlat = () => {
               },
             })}
           />
-          {errors.flatCode && (
-            <p className='text-red-600 my-1 text-xs'>{errors.flatCode.message}</p>
-          )}
+          {errors.flatCode && <p className='text-red-600 my-1 text-xs'>{errors.flatCode.message}</p>}
         </div>
         <button
           type='submit'
-          className='mt-4 w-3/4 flex items-center justify-center mx-auto bg-rustic-tan text-white p-2 rounded-md hover:ring-2 hover:ring-deep-navy cursor-pointer'
+          className='mt-4 w-3/4 flex items-center justify-center mx-auto bg-blue-300 dark:bg-blue-600 p-2 rounded-md hover:ring-2 hover:ring-deep-navy cursor-pointer'
         >
           Submit
         </button>
