@@ -32,7 +32,8 @@ const Login = () => {
   });
 
   const onSubmit = data => {
-    mutation.mutate(data);
+    // mutation.mutate(data);
+    navigate('/dashboard');
   };
 
   if (mutation.isPending) {
@@ -79,9 +80,7 @@ const Login = () => {
             className='border border-black p-2 w-[300px]  rounded-lg outline-none'
             {...register('password', { required: 'Password is required' })}
           />
-          {errors.password && (
-            <p className='text-red-500 my-1 text-xs'>{errors.password.message}</p>
-          )}
+          {errors.password && <p className='text-red-500 my-1 text-xs'>{errors.password.message}</p>}
         </div>
         <div className='text-right p-2'>
           <Link to='/forgotPassword'>Forgot Password?</Link>
@@ -91,9 +90,7 @@ const Login = () => {
           <span>Continue with Google</span>
         </div>
         <p className='border-t mt-4' />
-        {mutation.error && (
-          <p className='text-red-500 mt-2.5 text-xs text-center'>{mutation.error.message}</p>
-        )}
+        {mutation.error && <p className='text-red-500 mt-2.5 text-xs text-center'>{mutation.error.message}</p>}
         <button
           type='submit'
           className='mt-4 w-32 flex items-center justify-center mx-auto bg-rustic-tan text-white p-2 rounded-md hover:ring-2 hover:ring-deep-navy cursor-pointer'

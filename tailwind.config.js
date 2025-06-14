@@ -3,9 +3,6 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx,html}'],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['"Reddit Sans"', 'sans-serif'],
-      },
       keyframes: {
         'gradient-shift': {
           '0%, 100%': { backgroundPosition: '0% 50%' },
