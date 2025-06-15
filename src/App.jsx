@@ -14,6 +14,7 @@ import Meals from './components/Meals';
 import More from './components/More';
 import MealCalendar from './components/MealCalendar';
 import UserProfile from './components/UserProfile';
+import InviteFriend from './components/InviteFriend';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='createFlat' element={<CreateFlat />} />
         <Route path='mealCalendar' element={<MealCalendar />} />
         <Route path='userProfile' element={<UserProfile />} />
+        <Route path='inviteFriend' element={<InviteFriend />} />
       </Route>
     </Routes>
   );

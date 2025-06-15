@@ -16,8 +16,6 @@ const AppNavigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location);
-
   return (
     <section className='border-t border-gray-200'>
       <div className='flex justify-around items-center py-3'>

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { CalendarDays, House, HousePlus, LogOut, ScrollText, Sun, Moon, User } from 'lucide-react';
+import { CalendarDays, House, Handshake, HousePlus, LogOut, ScrollText, Sun, Moon, User } from 'lucide-react';
 import { toggleTheme } from '../../store/slices/themeSlice';
 import { logout } from '../../store/slices/authSlice';
 
@@ -32,6 +32,10 @@ const More = () => {
 
   const handleMealCalendar = () => {
     navigate('/dashboard/mealCalendar');
+  };
+
+  const handleInviteFriend = () => {
+    navigate('/dashboard/inviteFriend');
   };
 
   const options = [
@@ -68,8 +72,8 @@ const More = () => {
       pageKey: 'inviteFriend',
       label: 'Invite Friend',
       path: 'inviteFriend',
-      LucideIcon: House,
-      clickHandler: () => {},
+      LucideIcon: Handshake,
+      clickHandler: handleInviteFriend,
     },
     { pageKey: 'logout', label: 'Logout', path: '', LucideIcon: LogOut, clickHandler: handleLogout },
   ];
