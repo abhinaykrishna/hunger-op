@@ -19,7 +19,7 @@ const AppNavigation = () => {
   console.log(location);
 
   return (
-    <section className='fixed bottom-0 left-0 right-0 border-t border-gray-200'>
+    <section className='border-t border-gray-200'>
       <div className='flex justify-around items-center py-3'>
         {tabs.map(({ pageKey, label, path, LucideIcon }, idx) => (
           <div
@@ -31,12 +31,12 @@ const AppNavigation = () => {
           >
             <LucideIcon
               className={`w-6 h-6 ${
-                location.pathname === `/dashboard/${path}` ? 'text-blue-600 dark:text-blue-300' : 'text-gray-400'
+                location.pathname === `/dashboard/${path}` ? 'text-red-600 dark:text-red-300' : 'text-gray-400'
               }`}
             />
             <span
               className={`text-xs text-blue-600 ${
-                location.pathname === `/dashboard/${path}` ? 'text-blue-600 dark:text-blue-300' : 'text-gray-400'
+                location.pathname === `/dashboard/${path}` ? 'text-red-600 dark:text-red-300' : 'text-gray-400'
               }`}
             >
               {label}

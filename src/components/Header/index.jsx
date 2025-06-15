@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 const Header = () => {
   return (
-    <header className='p-4'>
+    <header className='p-4 bg-red-500 dark:bg-red-900 flex-shrink-0'>
       <h1 className='font-bold text-center'>
         <Link to='/'>
           <span className='text-4xl'>Hunger</span>

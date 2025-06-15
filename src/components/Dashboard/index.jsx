@@ -13,11 +13,9 @@ const Dashboard = () => {
   }, [theme]);
 
   return (
-    <main className='relative'>
-      <div className='fixed top-0 left-0 right-0 w-full z-50 h-16 bg-cyan-500'>
-        <Header />
-      </div>
-      <div className='pt-16 pb-16 overflow-y-auto h-full'>
+    <main className='h-screen flex flex-col max-w-sm mx-auto'>
+      <Header />
+      <div className='flex-1 overflow-y-auto h-full'>
         <Outlet />
       </div>
       <AppNavigation />

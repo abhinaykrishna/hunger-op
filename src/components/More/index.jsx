@@ -52,7 +52,7 @@ const More = () => {
     { pageKey: 'joinFlat', label: 'Join Flat', path: 'joinFlat', LucideIcon: HousePlus, clickHandler: handleJoinFlat },
     {
       pageKey: 'groceriesList',
-      label: 'Generate Groceries Flat',
+      label: 'Generate Groceries List',
       path: 'groceriesList',
       LucideIcon: ScrollText,
       clickHandler: () => {},
