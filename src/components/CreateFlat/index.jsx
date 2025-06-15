@@ -191,7 +191,7 @@ const CreateFlat = () => {
         )}
         <button
           type='submit'
-          className='mt-4 w-3/4 flex items-center justify-center mx-auto bg-blue-300 dark:bg-blue-600 p-2 rounded-md hover:ring-2 hover:ring-deep-navy cursor-pointer'
+          className='mt-4 w-3/4 flex items-center justify-center mx-auto bg-red-300 dark:bg-red-600 p-2 rounded-md hover:ring-2 hover:ring-deep-navy cursor-pointer'
         >
           Submit
         </button>

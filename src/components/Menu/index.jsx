@@ -34,18 +34,30 @@ const Menu = () => {
 
   return (
     <div className='my-1 flex flex-col h-full'>
-      <div className='flex gap-2 flex-wrap my-1.5 mx-2'>
+      <div className='flex gap-2 flex-wrap my-1.5'>
         <input
           type='text'
           value={searchTerm}
           onChange={handleSearchTermChange}
           className='flex-1 min-w-[200px] bg-transparent placeholder:text-slate-700 dark:placeholder:text-slate-300 text-slate-700 dark:text-white text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow'
-          placeholder='Search here...'
+          placeholder='Search'
         />
+      </div>
+      <div className='flex justify-between'>
+        <button className='flex items-center border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg cursor-pointer'>
+          <div className='bg-green-500 rounded-full w-3 h-3'></div>
+          <div className='border-l-2 h-3 mx-1' />
+          <span className='text-sm'>Veg</span>
+        </button>
+        <button className='flex items-center border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg cursor-pointer'>
+          <div className='bg-red-500 rounded-full w-3 h-3'></div>
+          <div className='border-l-2 h-3 mx-1 ' />
+          <span className='text-sm'>Non-veg</span>
+        </button>
         <select
           value={activeFilterKey}
           onChange={handleFilterChange}
-          className='min-w-[150px] border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
+          className='border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
         >
           {Object.keys(filterMap).map(key => (
             <option key={key} value={key}>
