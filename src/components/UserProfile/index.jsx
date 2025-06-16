@@ -33,7 +33,7 @@ const UserProfile = () => {
         <ChevronLeft />
         <span>More</span>
       </Link>
-      <div className='mx-6'>
+      <div className='mx-4'>
         <h3 className='text-center text-xl mb-2'>My Profile</h3>
         <section className='flex flex-col items-center my-2'>
           <img src={ronaldoImg} alt='user-image' className='h-28 w-28 border rounded-4xl' />

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Home, Search, Utensils, Menu } from 'lucide-react';
 // import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
@@ -15,6 +16,7 @@ const AppNavigation = () => {
   // const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState(tabs[0].label)
 
   return (
     <section className='border-t border-gray-200'>
@@ -24,17 +26,18 @@ const AppNavigation = () => {
             key={`${idx + pageKey}`}
             className='flex flex-col items-center space-y-1 cursor-pointer'
             onClick={() => {
+              setActiveTab(label)
               navigate(`/dashboard/${path}`);
             }}
           >
             <LucideIcon
               className={`w-6 h-6 ${
-                location.pathname === `/dashboard/${path}` ? 'text-red-600 dark:text-red-300' : 'text-gray-400'
+                activeTab === label ? 'text-red-600 dark:text-red-300' : 'text-gray-400'
               }`}
             />
             <span
               className={`text-xs text-blue-600 ${
-                location.pathname === `/dashboard/${path}` ? 'text-red-600 dark:text-red-300' : 'text-gray-400'
+                activeTab === label ? 'text-red-600 dark:text-red-300' : 'text-gray-400'
               }`}
             >
               {label}

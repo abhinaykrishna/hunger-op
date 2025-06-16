@@ -38,6 +38,10 @@ const More = () => {
     navigate('/dashboard/inviteFriend');
   };
 
+  const handleGroceriesList = () => {
+    navigate('/dashboard/groceriesList');
+  };
+
   const options = [
     {
       pageKey: 'userProfile',
@@ -56,10 +60,10 @@ const More = () => {
     { pageKey: 'joinFlat', label: 'Join Flat', path: 'joinFlat', LucideIcon: HousePlus, clickHandler: handleJoinFlat },
     {
       pageKey: 'groceriesList',
-      label: 'Generate Groceries List',
+      label: 'Groceries List',
       path: 'groceriesList',
       LucideIcon: ScrollText,
-      clickHandler: () => {},
+      clickHandler: handleGroceriesList,
     },
     {
       pageKey: 'mealCalendar',

@@ -15,6 +15,7 @@ import More from './components/More';
 import MealCalendar from './components/MealCalendar';
 import UserProfile from './components/UserProfile';
 import InviteFriend from './components/InviteFriend';
+import GroceriesList from './components/GroceriesList';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path='mealCalendar' element={<MealCalendar />} />
         <Route path='userProfile' element={<UserProfile />} />
         <Route path='inviteFriend' element={<InviteFriend />} />
+        <Route path='groceriesList' element={<GroceriesList />} />
       </Route>
     </Routes>
   );
