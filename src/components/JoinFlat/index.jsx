@@ -41,7 +41,7 @@ const JoinFlat = () => {
         <span>More</span>
       </Link>
       <form
-        className='mt-2 px-5 py-10 rounded-3xl border shadow-md dark:shadow-cyan-300'
+        className='mx-8 mt-1 px-5 py-10 rounded-3xl border shadow-md dark:shadow-cyan-300'
         onSubmit={handleSubmit(onSubmit)}
       >
         <h3 className='text-center text-2xl mb-2'>Join Flat</h3>

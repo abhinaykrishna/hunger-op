@@ -33,26 +33,28 @@ const UserProfile = () => {
         <ChevronLeft />
         <span>More</span>
       </Link>
-      <h3 className='text-center text-xl mb-2'>My Profile</h3>
-      <section className='flex flex-col items-center my-2'>
-        <img src={ronaldoImg} alt='user-image' className='h-28 w-28 border rounded-4xl' />
-        <div className='p-1 mt-1 font-extrabold text-2xl'>Cristiano Ronaldo</div>
-        <div>ronaldo7@manchesterunited.com</div>
-      </section>
-      <section className='mt-4'>
-        {options.map(({ label, LucideIcon, pageKey }, idx) => (
-          <div key={idx} className='border-t-2 border-gray-200 flex items-center justify-between'>
-            <div className='flex py-3'>
-              <LucideIcon />
-              <span className='ml-2'>{label}</span>
+      <div className='mx-6'>
+        <h3 className='text-center text-xl mb-2'>My Profile</h3>
+        <section className='flex flex-col items-center my-2'>
+          <img src={ronaldoImg} alt='user-image' className='h-28 w-28 border rounded-4xl' />
+          <div className='p-1 mt-1 font-extrabold text-2xl'>Cristiano Ronaldo</div>
+          <div>ronaldo7@manchesterunited.com</div>
+        </section>
+        <section className='mt-4'>
+          {options.map(({ label, LucideIcon, pageKey }, idx) => (
+            <div key={idx} className='border-t-2 border-gray-200 flex items-center justify-between'>
+              <div className='flex py-3'>
+                <LucideIcon />
+                <span className='ml-2'>{label}</span>
+              </div>
+              <div className='flex'>
+                {pageKey === 'account' && <button className='text-sm'>Edit Profile</button>}
+                <ChevronRight color='gray' />
+              </div>
             </div>
-            <div className='flex'>
-              {pageKey === 'account' && <button className='text-sm'>Edit Profile</button>}
-              <ChevronRight color='gray' />
-            </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      </div>
     </div>
   );
 };

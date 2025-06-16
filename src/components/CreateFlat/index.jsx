@@ -57,8 +57,11 @@ const CreateFlat = () => {
         <ChevronLeft />
         <span>More</span>
       </Link>
-      <form className='px-5 py-10 rounded-3xl border shadow-md dark:shadow-cyan-300' onSubmit={handleSubmit(onSubmit)}>
-        <h3 className='text-center text-2xl mb-2'>Create Flat</h3>
+      <form
+        className='mx-8 px-5 py-6 mt-1 rounded-3xl border shadow-md dark:shadow-cyan-300'
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h3 className='text-center text-2xl'>Create Flat</h3>
         <div className='flex flex-col'>
           <label htmlFor='flat-name' className='my-2 '>
             Flat Name

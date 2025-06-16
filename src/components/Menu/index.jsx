@@ -43,13 +43,13 @@ const Menu = () => {
           placeholder='Search'
         />
       </div>
-      <div className='flex justify-between'>
-        <button className='flex items-center border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg cursor-pointer'>
+      <div className='flex mt-1'>
+        <button className='flex items-center border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg cursor-pointer mr-2'>
           <div className='bg-green-500 rounded-full w-3 h-3'></div>
           <div className='border-l-2 h-3 mx-1' />
           <span className='text-sm'>Veg</span>
         </button>
-        <button className='flex items-center border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg cursor-pointer'>
+        <button className='flex items-center border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg cursor-pointer mr-2'>
           <div className='bg-red-500 rounded-full w-3 h-3'></div>
           <div className='border-l-2 h-3 mx-1 ' />
           <span className='text-sm'>Non-veg</span>
@@ -57,7 +57,7 @@ const Menu = () => {
         <select
           value={activeFilterKey}
           onChange={handleFilterChange}
-          className='border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
+          className='flex-1/2 border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
         >
           {Object.keys(filterMap).map(key => (
             <option key={key} value={key}>
