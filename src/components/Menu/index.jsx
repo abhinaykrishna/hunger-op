@@ -57,7 +57,7 @@ const Menu = () => {
         <select
           value={activeFilterKey}
           onChange={handleFilterChange}
-          className='flex-1/2 border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
+          className='grow border border-slate-200 px-3 py-2 text-slate-700 dark:text-white text-sm rounded-lg focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow focus:outline-none'
         >
           {Object.keys(filterMap).map(key => (
             <option key={key} value={key}>

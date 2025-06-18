@@ -1,10 +1,26 @@
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, Copy } from 'lucide-react';
 import whatsappLogo from '../../assets/whatsapp-logo.webp';
 import instagramLogo from '../../assets/instagram-logo.webp';
 import referralLogo from '../../assets/referral-logo.png';
 
+const APP_URL = 'https://hunger-op.vercel.app';
+
 const InviteFriend = () => {
+  const handleCopyClick = async () => {
+    await navigator.clipboard.writeText(APP_URL);
+    toast.dismiss();
+    toast('Copied to clipboard', {
+      icon: '📋',
+      position: 'bottom-center',
+      style: {
+        marginBottom: '60px',
+      },
+      // className: '!bg-green-300',
+    });
+  };
+
   return (
     <div className='mx-4 flex flex-col flex-wrap'>
       <Link to='/dashboard/more' className='my-3 flex items-center'>
@@ -26,12 +42,14 @@ const InviteFriend = () => {
       </form>
       <div className='text-sm text-center mb-2'>or share invite link</div>
       <div className='flex border border-slate-300 p-1.5 rounded-lg justify-between items-center'>
-        <span className='px-1'>https://hunger-op.vercel.app</span>
+        <span className='px-1'>{APP_URL}</span>
         <div className='flex items-center'>
+          <Copy className='mr-1 w-5 cursor-pointer' onClick={handleCopyClick} />
           <img src={whatsappLogo} className='h-7 mx-1.5 cursor-pointer' />
-          <img src={instagramLogo} className='h-5 mx-1.5 cursor-pointer' />
+          <img src={instagramLogo} className='h-5.5 mx-1.5 cursor-pointer' />
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
