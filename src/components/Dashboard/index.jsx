@@ -13,7 +13,7 @@ const Dashboard = () => {
   }, [theme]);
 
   return (
-    <main className='h-screen flex flex-col max-w-md mx-auto' style={{ height: '100vh', height: '100dvh' }}>
+    <main className='h-screen flex flex-col max-w-md mx-auto' style={{ height: '100dvh' }}>
       <Header />
       <div className='flex-1 overflow-y-auto h-full'>
         <Outlet />

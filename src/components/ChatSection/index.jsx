@@ -37,7 +37,7 @@ function ChatSection() {
         <div className='w-4/5 bg-gray-100 px-2 py-1 rounded-lg my-1 dark:text-gray-900'>
           <span className='text-orange-500'>Karim Benzema</span>
           <p className='flex justify-between items-center'>
-            <span>Monday se starting karenge BBC! 💪🏻</span>
+            <span>Monday se start karenge BBC! 💪🏻</span>
             <span className='text-xs'>{format(new Date(), 'h:mm a')}</span>
           </p>
         </div>
