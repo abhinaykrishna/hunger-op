@@ -1,5 +1,6 @@
 import { UsersRound, CirclePlay } from 'lucide-react';
 import MealCard from '../MealCard';
+import ChatSection from '../ChatSection';
 import chickenBiryaniImg from '../../assets/biryani-img.webp';
 import palakPaneerRotiImg from '../../assets/palak-panner-with-roti.jpeg';
 
@@ -22,10 +23,12 @@ const Home = () => {
         </div>
       </section>
       <h3 className='text-xl mt-2.5 font-extrabold'>What's Cooking Today?</h3>
-      <div className='pb-4 flex gap-2'>
+      <div className='pb-1 flex gap-2'>
         <MealCard mealTime='Lunch' dishName='Chicken Biryani' dishImg={chickenBiryaniImg} />
         <MealCard mealTime='Dinner' dishName='Palak Paneer with Roti' dishImg={palakPaneerRotiImg} />
       </div>
+      <h3 className='text-xl my-2.5 font-extrabold'>Flat Space</h3>
+      <ChatSection />
     </div>
   );
 };
