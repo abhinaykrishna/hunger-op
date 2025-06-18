@@ -92,7 +92,7 @@ const More = () => {
           <Moon className='w-6 h-6 cursor-pointer' onClick={handleThemeChange} />
         )}
       </div>
-      <section>
+      <section className='my-2'>
         {options.map(({ label, LucideIcon, clickHandler }, idx) => (
           <div key={idx} className='flex py-3 items-center gap-2.5 cursor-pointer' onClick={clickHandler}>
             <LucideIcon className='w-6 h-6' />

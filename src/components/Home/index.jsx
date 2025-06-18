@@ -22,7 +22,7 @@ const Home = () => {
         </div>
       </section>
       <h3 className='text-xl mt-2.5 font-extrabold'>What's Cooking Today?</h3>
-      <div className='pb-4'>
+      <div className='pb-4 flex gap-2'>
         <MealCard mealTime='Lunch' dishName='Chicken Biryani' dishImg={chickenBiryaniImg} />
         <MealCard mealTime='Dinner' dishName='Palak Paneer with Roti' dishImg={palakPaneerRotiImg} />
       </div>

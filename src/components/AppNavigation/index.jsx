@@ -20,7 +20,7 @@ const AppNavigation = () => {
 
   return (
     <section className='border-t border-gray-200'>
-      <div className='flex justify-around items-center py-1.5'>
+      <div className='flex justify-around items-center py-2.5'>
         {tabs.map(({ pageKey, label, path, LucideIcon }, idx) => (
           <div
             key={`${idx + pageKey}`}

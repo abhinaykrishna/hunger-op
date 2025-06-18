@@ -8,23 +8,24 @@ const MealCard = ({ mealTime, dishName, dishImg }) => {
   };
 
   return (
-    <section className='mb-2.5'>
+    <section className='mb-2.5 w-1/2'>
       <h4 className='text-lg font-bold my-1.5'>{mealTime}</h4>
       <div className='border border-gray-300 rounded-xl'>
-        <img src={dishImg} alt='meal-image' className='h-32 rounded-xl w-full' />
-        <div className='flex justify-between py-2 items-center w-6/7 mx-auto'>
-          <h5 className='font-bold'>{dishName}</h5>
-          <div className={`flex flex-col items-center ${optedOut ? 'w-40' : ''}`}>
-            <button
-              className='border border-gray-200 px-2 py-1 rounded-xl font-bold cursor-pointer w-18 text-sm'
-              onClick={handleOptOut}
-            >
-              {optedOut ? 'Undo' : 'Opt out'}
-            </button>
-            {optedOut && (
-              <div className='my-0.5 text-xs text-red-400'>You've opted out. Tap Undo to opt back in! 😋</div>
-            )}
-          </div>
+        <img src={dishImg} alt='meal-image' className='h-32 rounded-xl' />
+        <div className='flex flex-col items-center py-2 mx-2'>
+          <h5 className='font-bold text-sm'>{dishName}</h5>
+          <button
+            className='border border-gray-200 px-1 py-0.5 mt-0.5 rounded-xl font-bold cursor-pointer w-18 text-xs'
+            onClick={handleOptOut}
+          >
+            {optedOut ? 'Undo' : 'Opt out'}
+          </button>
+          {optedOut && (
+            <div className='mt-1 text-xs text-red-400 text-center'>
+              <p>You've opted out.</p>
+              <p>Tap Undo to opt back in! 😋</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
