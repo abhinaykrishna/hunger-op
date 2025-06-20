@@ -41,15 +41,15 @@ function ChatSection() {
           <MessageCard key={message.msgId} {...message} />
         ))}
       </div>
-      <form className='flex px-1 py-0.5 mt-2 border-t-1 border-gray-300'>
+      <form className='flex justify-center items-center py-0.5 mt-1'>
         <input
           type='text'
           value={messageText}
-          placeholder='send a message'
-          className='w-full outline-none text-sm'
+          placeholder='Send a message'
+          className='w-full outline-none text-sm border p-1 rounded-lg border-gray-300 mb-1 placeholder:text-xs'
           onChange={e => setMessageText(e.target.value)}
         />
-        <button type='submit' onClick={handleMsgSubmit}>
+        <button type='submit' onClick={handleMsgSubmit} className='ml-2'>
           <SendHorizontal />
         </button>
       </form>
