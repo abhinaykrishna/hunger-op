@@ -9,7 +9,8 @@ const APP_URL = 'https://hunger-op.vercel.app';
 
 const InviteFriend = () => {
   const handleCopyClick = async () => {
-    await navigator.clipboard.writeText(APP_URL);
+    const copiedText = `Simplify cooking and stay organized with HungerOP app! Sign up now: ${APP_URL}`;
+    await navigator.clipboard.writeText(copiedText);
     toast.dismiss();
     toast('Copied to clipboard', {
       icon: '📋',

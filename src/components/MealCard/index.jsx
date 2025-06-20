@@ -8,8 +8,8 @@ const MealCard = ({ mealTime, dishName, dishImg }) => {
   };
 
   return (
-    <section className='mb-1.5 w-1/2'>
-      <h4 className='text-lg font-bold my-1.5'>{mealTime}</h4>
+    <section className='mb-1 w-1/2'>
+      <h4 className='text-lg font-bold my-1'>{mealTime}</h4>
       <div className='border border-gray-300 rounded-xl'>
         <img src={dishImg} alt='meal-image' className='h-32 rounded-xl' />
         <div className='flex flex-col items-center py-2 mx-2'>
